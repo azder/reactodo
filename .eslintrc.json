@@ -1,0 +1,30 @@
+{
+    "parserOptions": {
+        "sourceType": "module",
+        "ecmaVersion": 2018,
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "env": {
+        "browser": false,
+        "node": true,
+        "jest": false
+    },
+    "extends": [
+        "@azhder/azder",
+        "plugin:react/recommended"
+    ],
+    "globals": {
+        "Promise": false,
+        "Symbol": false
+    },
+    "rules": {
+        "react/prefer-stateless-function": [
+            1,
+            {
+                "ignorePureComponents": false
+            }
+        ]
+    }
+}
