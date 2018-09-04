@@ -19,4 +19,8 @@ describe('App', () => {
 
     });
 
+    it('whatever', () => {
+        // empty
+    });
+
 });

@@ -10,10 +10,13 @@
 // To learn more about the benefits of this model, read https://goo.gl/KwvDNy.
 // This link also includes instructions on opting out of this behavior.
 
-const STATUS_MISS = 404;
-const SEARCH_MISS = -1;
+const E_STATUS = 404;
+const E_SEARCH = -1;
 
+
+// eslint-disable-next-line
 const clog = console.log.bind(console);
+// eslint-disable-next-line
 const cerr = console.error.bind(console);
 
 
@@ -55,35 +58,24 @@ const registerValidSW = (
                 };
 
             }
-        )).catch(error => {
-            cerr('Error registering service worker:', error);
-        })
+        )).catch(reason => cerr('Error registering service worker:', reason))
 
 );
 
-const checkValidServiceWorker = swUrl => {
+const checkValidServiceWorker = swurl => {
     // Check if the service worker can be found. If it can't reload the page.
-    fetch(swUrl).then(response => {
+    fetch(swurl).then(response => {
         // Ensure service worker exists, and that we really are getting a JS file.
-        if (
-            STATUS_MISS === response.status || SEARCH_MISS === response.headers.get('content-type')
-                                                                       .indexOf('javascript')
-        ) {
+        if (E_STATUS === response.status || E_SEARCH === response.headers.get('content-type').indexOf('javascript')) {
             // No service worker found. Probably a different app. Reload the page.
             navigator.serviceWorker.ready.then(registration => {
-                registration.unregister().then(() => {
-                    window.location.reload();
-                });
+                registration.unregister().then(() => window.location.reload());
             });
         } else {
             // Service worker found. Proceed as normal.
-            registerValidSW(swUrl);
+            registerValidSW(swurl);
         }
-    }).catch(() => {
-        console.log(
-            'No internet connection found. App is running in offline mode.'
-        );
-    });
+    }).catch(reason => cerr('No internet connection found. App is running in offline mode.', reason));
 };
 
 
@@ -99,32 +91,29 @@ export const register = function register() {
         }
 
         window.addEventListener('load', () => {
-            const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
+            const swurl = `${process.env.PUBLIC_URL}/service-worker.js`;
 
             if (isLocalhost) {
                 // This is running on localhost. Lets check if a service worker still exists or not.
-                checkValidServiceWorker(swUrl);
+                checkValidServiceWorker(swurl);
 
                 // Add some additional logging to localhost, pointing developers to the
                 // service worker/PWA documentation.
-                navigator.serviceWorker.ready.then(() => {
-                    console.log(
-                        'This web app is being served cache-first by a service ' + 'worker. To learn more, visit https://goo.gl/SC7cgQ'
-                    );
-                });
+                navigator.serviceWorker.ready.then(() => clog(
+                    'This web app is being served cache-first by a service worker.',
+                    ' To learn more, visit https://goo.gl/SC7cgQ'
+                ));
             } else {
                 // Is not local host. Just register service worker
-                registerValidSW(swUrl);
+                registerValidSW(swurl);
             }
         });
     }
 };
 
 
-export function unregister() {
+export const unregister = function unregister() {
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.ready.then(registration => {
-            registration.unregister();
-        });
+        navigator.serviceWorker.ready.then(registration => registration.unregister());
     }
-}
+};

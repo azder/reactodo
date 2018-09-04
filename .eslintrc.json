@@ -1,4 +1,7 @@
 {
+
+    "parser": "babel-eslint",
+
     "parserOptions": {
         "sourceType": "module",
         "ecmaVersion": 2018,
@@ -8,12 +11,15 @@
     },
     "env": {
         "browser": false,
-        "node": true,
+        "node": false,
         "jest": false
     },
+    "plugins": [
+        "babel"
+    ],
     "extends": [
-        "@azhder/azder",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "@azhder/azder"
     ],
     "globals": {
         "Promise": false,
@@ -25,6 +31,8 @@
             {
                 "ignorePureComponents": false
             }
-        ]
+        ],
+        "no-invalid-this": 0,
+        "babel/no-invalid-this": 1
     }
 }

@@ -13,6 +13,8 @@ module.exports = {
                 options: {
                     presets: [
                         'env',
+                        'react',
+                        'stage-2',
                     ],
                 },
             },
@@ -44,11 +46,12 @@ module.exports = {
         contentBase: path.join(__dirname, 'public/'),
         port:        3000,
         publicPath:  'http://localhost:3000/dist/',
-        hotOnly:     true,
+        // hotOnly:     true,
+        // hot:         true,
     },
 
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
+        // new webpack.HotModuleReplacementPlugin(),
     ],
 
 };
