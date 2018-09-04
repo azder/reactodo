@@ -1,5 +1,9 @@
-export const updateState = (
+export const updateState$ = (
 
-    (component, state) => () => component.setState(() => state)
+    (component, state) => (
+
+        () => component.setState(() => state)
+
+    )
 
 );

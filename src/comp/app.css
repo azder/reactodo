@@ -6,8 +6,13 @@
     height: 80px;
 }
 
-.app-logo.spinning {
+.app-logo.spin {
     animation: app-logo-spin infinite 20s linear;
+}
+
+@keyframes app-logo-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 .app-header {
@@ -25,7 +30,3 @@
     font-size: large;
 }
 
-@keyframes app-logo-spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}

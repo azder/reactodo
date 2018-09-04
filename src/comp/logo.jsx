@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import {evtap} from '../util/events';
-import {updateState} from '../util/components';
+import {rehandle} from '../util/events';
+import {updateState$} from '../util/components';
 
 // export const Logo = (
 //     ({src, onClick}) => <a href="#" onClick={onClick}>
@@ -36,11 +36,11 @@ export class Logo extends Component {
                 src={src}
 
                 className={
-                    classNames({'app-logo': true, spinning: spin})
+                    classNames({'app-logo': true, spin})
                 }
 
                 onClick={
-                    evtap(onClick, updateState(this, {spin: !spin}))
+                    rehandle(onClick, updateState$(this, {spin: !spin}))
                 }
             />
 

@@ -3,7 +3,7 @@ import React from 'react';
 import {prevented} from '../util/events';
 
 
-const hi = (
+const hi$ = (
 
     // eslint-disable-next-line no-console
     (...args) => console.log('hi', ...args)
@@ -14,8 +14,8 @@ const hi = (
 export const AppHeader = (
     () => (
         <header className="app-header">
-            <Logo src="logo.svg" onClick={prevented(hi)}/>
-            <h1 className="app-title">Welcome to React</h1>
+            <Logo src="logo.svg" onClick={prevented(hi$)}/>
+            <h1 className="app-title">Welcome</h1>
         </header>
     )
 );

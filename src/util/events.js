@@ -14,7 +14,7 @@ export const prevented = (
 );
 
 
-export const evtap = (
+export const rehandle = (
 
     (handler, fn) => (
         ev => {
