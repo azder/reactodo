@@ -1,5 +1,5 @@
-import {Logo} from './logo';
 import React from 'react';
+import {Logo} from './logo';
 import {prevented} from '../util/events';
 
 

@@ -1,5 +1,6 @@
 const path = require('path');
-const webpack = require('webpack');
+const babelrc = require('./.babelrc');
+// const webpack = require('webpack');
 
 module.exports = {
     entry:  './src/index.js',
@@ -10,13 +11,7 @@ module.exports = {
                 test:    /\.(js|jsx)$/,
                 exclude: /(node_modules|bower_components)/,
                 loader:  'babel-loader',
-                options: {
-                    presets: [
-                        'env',
-                        'react',
-                        'stage-2',
-                    ],
-                },
+                options: babelrc,
             },
             {
                 test: /\.css$/,
@@ -44,14 +39,16 @@ module.exports = {
 
     devServer: {
         contentBase: path.join(__dirname, 'public/'),
-        port:        3000,
-        publicPath:  'http://localhost:3000/dist/',
+        port:        3333,
+        publicPath:  'http://localhost:3333/dist/',
         // hotOnly:     true,
-        // hot:         true,
+        hot:         true,
     },
 
     plugins: [
         // new webpack.HotModuleReplacementPlugin(),
     ],
+
+    devtool: 'inline-source-map',
 
 };
