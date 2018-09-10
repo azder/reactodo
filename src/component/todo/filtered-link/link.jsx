@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {prevented} from '../../util/events';
+import {prevented} from '../../../util/events';
 
 const ActiveLink = (
 
@@ -43,3 +43,5 @@ Link.propTypes = {
     onClick:  PropTypes.func.isRequired,
 };
 
+
+export default Link;

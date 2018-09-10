@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import {rehandle} from '../util/events';
-import {updateState$} from '../util/components';
+import {rehandle} from '../../util/events';
+import {updateState$} from '../../util/components';
 
 // export const Logo = (
 //     ({src, onClick}) => <a href="#" onClick={onClick}>
@@ -14,7 +14,7 @@ import {updateState$} from '../util/components';
 //     </a>
 // );
 
-export class Logo extends Component {
+class Logo extends Component {
 
     state = {spin: true};
 
@@ -48,3 +48,6 @@ export class Logo extends Component {
     }
 
 }
+
+
+export default Logo;

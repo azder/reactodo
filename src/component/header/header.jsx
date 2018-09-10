@@ -1,6 +1,6 @@
 import React from 'react';
-import {Logo} from './logo';
-import {prevented} from '../util/events';
+import {prevented} from '../../util/events';
+import Logo from './logo';
 
 
 const hi$ = (
@@ -11,7 +11,7 @@ const hi$ = (
 );
 
 
-export const AppHeader = (
+const AppHeader = (
     () => (
         <header className="app-header">
             <Logo src="logo.svg" onClick={prevented(hi$)}/>
@@ -19,3 +19,6 @@ export const AppHeader = (
         </header>
     )
 );
+
+
+export default AppHeader;

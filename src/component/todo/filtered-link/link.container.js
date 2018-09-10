@@ -1,9 +1,9 @@
 import {connect} from 'react-redux';
-import {Link} from '../comp/todo/todo-link';
-import {filter2action} from '../act/filter.action';
+import Link from './link';
+import filter2action from './filter.action';
 
 
-export const FilterLinkContainer = connect(
+export default connect(
     //
     (state, props) => ({
         active: state.visibilityFilter === props.filter,

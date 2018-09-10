@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {App} from '../src/comp/app';
+import {App} from '../src/component/app';
 
 describe('App', () => {
 

@@ -1,16 +1,18 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {add2action} from '../act/add.action';
-import {prevented} from '../util/events';
-import {log} from '../util/console';
+
+import {prevented} from '../../../util/events';
+import {log} from '../../../util/console';
+
+import value2action from './add.action';
 
 
-export const AddTodoContainer = connect()(
+export default connect()(
     // eslint-disable-next-line react/prop-types
     props => {
 
         const {dispatch} = props;
-        log('AddTodoContainer()')(props);
+        log('todo/add/add.container()')(props);
         let input = null; // eslint-disable-line init-declarations
 
         const onSubmit = prevented(
@@ -20,7 +22,7 @@ export const AddTodoContainer = connect()(
                     return;
                 }
 
-                dispatch(add2action(input.value));
+                dispatch(value2action(input.value));
                 input.value = '';
 
             }

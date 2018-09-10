@@ -23,7 +23,7 @@ const reducers = alternator({
 });
 
 
-export const todosXstate = (
+export default (
 
     (state = [], action) => reducers(constant(state), state, action)
 

@@ -1,22 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {TodoItem} from './todo-item';
-import {tap} from '../../util/functions';
-import {log} from '../../util/console';
+import Item from './item';
+import {tap} from '../../../util/functions';
+import {log} from '../../../util/console';
 
 
-export const TodoList = ({todos, onTodoClick}) => (
+export const List = ({todos, onTodoClick}) => (
 
-    tap(log('TodoList()', todos, onTodoClick))(<ul>
+    tap(log('todo.list.list()', todos, onTodoClick))(<ul>
         {
             todos.map((todo, index) => (
-                <TodoItem key={index} {...todo} onClick={() => onTodoClick(index)}/>
+                <Item key={index} {...todo} onClick={() => onTodoClick(index)}/>
             ))
         }
     </ul>)
 );
 
-TodoList.propTypes = {
+List.propTypes = {
 
     todos: PropTypes.arrayOf(
         PropTypes.shape({
@@ -31,3 +31,5 @@ TodoList.propTypes = {
     onTodoClick: PropTypes.func.isRequired,
 
 };
+
+export default List;

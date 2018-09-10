@@ -11,7 +11,7 @@ const style = (
 );
 
 
-export const TodoItem = (
+export const Item = (
 
     ({onClick, completed, text}) => (
 
@@ -22,10 +22,12 @@ export const TodoItem = (
 );
 
 
-TodoItem.propTypes = {
+Item.propTypes = {
 
     onClick:   PropTypes.func.isRequired,
     completed: PropTypes.bool.isRequired,
     text:      PropTypes.string.isRequired,
 
 };
+
+export default Item;

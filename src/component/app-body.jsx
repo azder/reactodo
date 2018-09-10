@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export const AppBody = (
+const AppBody = (
     () => (
         <main>
             <p className="app-intro">
@@ -10,3 +10,6 @@ export const AppBody = (
         </main>
     )
 );
+
+
+export default AppBody;
