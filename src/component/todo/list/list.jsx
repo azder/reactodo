@@ -1,19 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+
 import Item from './item';
-import {tap} from '../../../util/functions';
-import {log} from '../../../util/console';
 
 
-export const List = ({todos, onTodoClick}) => (
+const List = (
 
-    tap(log('todo.list.list()', todos, onTodoClick))(<ul>
-        {
-            todos.map((todo, index) => (
-                <Item key={index} {...todo} onClick={() => onTodoClick(index)}/>
-            ))
-        }
-    </ul>)
+    ({todos, onTodoClick}) => (
+        <ul>
+            {
+                todos.map(todo => (
+                    <Item key={todo.id} {...todo} onClick={() => onTodoClick(todo.id)}/>
+                ))
+            }
+        </ul>
+    )
 );
 
 List.propTypes = {

@@ -1,8 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {prevented} from '../../../util/events';
-import {log} from '../../../util/console';
+import prevented from '../../../util/event/prevented';
+import log from '../../../util/log.$';
 
 import value2action from './add.action';
 

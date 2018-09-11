@@ -79,7 +79,7 @@ const checkValidServiceWorker = swurl => {
 };
 
 
-export const register = function register() {
+const register = function register() {
     if ('production' === process.env.NODE_ENV && 'serviceWorker' in navigator) {
         // The URL constructor is available in all browsers that support SW.
         const publicUrl = new URL(process.env.PUBLIC_URL, window.location);
@@ -112,8 +112,11 @@ export const register = function register() {
 };
 
 
-export const unregister = function unregister() {
+const unregister = function unregister() {
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.ready.then(registration => registration.unregister());
     }
 };
+
+
+export default register;

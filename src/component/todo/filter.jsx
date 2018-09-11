@@ -1,5 +1,5 @@
 import React from 'react';
-import {VISIBILITY} from '../../constants';
+import VIS from '../../constant/visibility';
 
 import Link from './filtered-link/link.container';
 
@@ -8,11 +8,11 @@ const Filter = (
     () => (
         <p>
             Show:
-            <Link filter={VISIBILITY.ALL}>All</Link>
+            <Link filter={VIS.all}>All</Link>
             ,
-            <Link filter={VISIBILITY.ACTIVE}>Active</Link>
+            <Link filter={VIS.active}>Active</Link>
             ,
-            <Link filter={VISIBILITY.COMPLETED}>Completed</Link>
+            <Link filter={VIS.completed}>Completed</Link>
         </p>
     )
 

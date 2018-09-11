@@ -23,7 +23,9 @@
     ],
     "globals": {
         "Promise": false,
-        "Symbol": false
+        "Symbol": false,
+        "Proxy": false,
+        "Reflect": false
     },
     "rules": {
         "react/prefer-stateless-function": [

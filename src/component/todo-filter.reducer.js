@@ -1,20 +1,6 @@
-import {ACTKEY, VISIBILITY} from '../constants';
-import {tap} from '../util/functions';
-import {log} from '../util/console';
-
-export default (
+import on from '../util/on-action';
+import AT from '../constant/action-type';
+import VIS from '../constant/visibility';
 
 
-    (state = VISIBILITY.ALL, action) => (
-
-        tap(
-            log('todo-filter.reducer()', {state, action})
-        )(
-            ACTKEY.SET_VISIBILITY_FILTER === action.type
-                ? action.filter
-                : state
-        )
-
-    )
-
-);
+export default on(AT.switchVisibles, VIS.all, (state, data) => data.filter);

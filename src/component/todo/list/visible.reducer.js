@@ -1,12 +1,14 @@
-import {VISIBILITY} from '../../../constants';
-import {tap} from '../../../util/functions';
-import {log} from '../../../util/console';
+import VIS from '../../../constant/visibility';
+import tap from '../../../util/fn/tap';
+import log from '../../../util/log.$';
+
 
 const MAP = {
-    [VISIBILITY.ALL]:       todos => tap(log('MAP.all'))(todos),
-    [VISIBILITY.COMPLETED]: todos => tap(log('MAP.comp'))(todos.filter(t => t.completed)),
-    [VISIBILITY.ACTIVE]:    todos => tap(log('MAP.acti'))(todos.filter(t => !t.completed)),
+    [VIS.all]:       todos => tap(log('MAP.all'))(todos),
+    [VIS.completed]: todos => tap(log('MAP.completed'))(todos.filter(t => t.completed)),
+    [VIS.active]:    todos => tap(log('MAP.acti'))(todos.filter(t => !t.completed)),
 };
+
 
 export default (
     (todos = [], visibility) => tap(

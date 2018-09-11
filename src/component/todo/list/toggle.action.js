@@ -1,13 +1,9 @@
-import {tap} from '../../../util/functions';
-import {log} from '../../../util/console';
-import {ACTKEY} from '../../../constants';
+import AT from '../../../constant/action-type';
+import action from '../../../util/action';
 
 export default (
 
-    id => tap(
-        log('todo/list/toggle.action()', id)
-    )({
-        type: ACTKEY.TOGGLE_TODO,
+    id => action(AT.toggleTodo, {
         id,
     })
 

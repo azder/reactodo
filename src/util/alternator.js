@@ -1,4 +1,4 @@
-export const alternator = (
+export default (
 
     mapping => (
 

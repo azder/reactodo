@@ -11,7 +11,7 @@ const style = (
 );
 
 
-export const Item = (
+const Item = (
 
     ({onClick, completed, text}) => (
 

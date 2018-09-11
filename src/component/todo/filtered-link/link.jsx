@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {prevented} from '../../../util/events';
+import prevented from '../../../util/event/prevented';
 
 const ActiveLink = (
 
@@ -26,7 +26,7 @@ InactiveLink.propTypes = {
 };
 
 
-export const Link = ({active, children, onClick}) => (
+const Link = ({active, children, onClick}) => (
 
     active
         ? (

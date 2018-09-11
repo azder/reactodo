@@ -1,6 +1,5 @@
-import {tap} from '../../../util/functions';
-import {log} from '../../../util/console';
-import {ACTKEY} from '../../../constants';
+import AT from '../../../constant/action-type';
+import action from '../../../util/action';
 
 
 const idgen = (
@@ -21,10 +20,11 @@ const todoId$ = idgen(0); // eslint-disable-line no-magic-numbers
 
 export default (
 
-    text => tap(log('todo/add/add.action()', {text}))({
-        type: ACTKEY.ADD_TODO,
-        id:   todoId$.next().value,
-        text,
-    })
+    text => (
+        action(AT.addTodo, {
+            id: todoId$.next().value,
+            text,
+        })
+    )
 );
 

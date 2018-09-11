@@ -1,23 +1,29 @@
-import {constant} from '../util/functions';
-import {alternator} from '../util/controls';
-import {ACTKEY} from '../constants';
+import AT from '../constant/action-type';
+import constant from '../util/fn/constant';
+import alternator from '../util/alternator';
+
+import data from '../util/data';
 
 
 const reducers = alternator({
 
-    [ACTKEY.ADD_TODO]: (state, action) => ([
+    [AT.addTodo]: (state, action) => ([
         ...state,
         {
-            id:        action.id,
-            text:      action.text,
+            id:        data(action).id,
+            text:      data(action).text,
             completed: false,
         },
     ]),
 
-    [ACTKEY.TOGGLE_TODO]: (state, action) => state.map(
-        todo => (todo.id === action.id)
-            ? {...todo, completed: !todo.completed}
-            : todo
+    [AT.toggleTodo]: (state, action) => (
+        state.map(
+            todo => (
+                todo.id === data(action).id
+                    ? {...todo, completed: !todo.completed}
+                    : todo
+            )
+        )
     ),
 
 });
@@ -26,6 +32,5 @@ const reducers = alternator({
 export default (
 
     (state = [], action) => reducers(constant(state), state, action)
-
 
 );

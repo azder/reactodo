@@ -1,4 +1,9 @@
 import {connect} from 'react-redux';
+
+
+import SK from '../../../constant/status-key';
+
+
 import Link from './link';
 import filter2action from './filter.action';
 
@@ -6,7 +11,7 @@ import filter2action from './filter.action';
 export default connect(
     //
     (state, props) => ({
-        active: state.visibilityFilter === props.filter,
+        active: state[SK.visible] === props.filter,
     }),
     //
     (dispatch, props) => ({

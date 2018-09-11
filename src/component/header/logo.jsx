@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import {rehandle} from '../../util/events';
-import {updateState$} from '../../util/components';
+
+
+import rehandle from '../../util/event/rehandle';
+import update$ from '../../util/update-state.$';
+
 
 // export const Logo = (
 //     ({src, onClick}) => <a href="#" onClick={onClick}>
@@ -40,7 +43,7 @@ class Logo extends Component {
                 }
 
                 onClick={
-                    rehandle(onClick, updateState$(this, {spin: !spin}))
+                    rehandle(onClick, update$(this, {spin: !spin}))
                 }
             />
 

@@ -1,6 +1,10 @@
 import React from 'react';
-import {prevented} from '../../util/events';
+
+
 import Logo from './logo';
+
+
+import prevented from '../../util/event/prevented';
 
 
 const hi$ = (
