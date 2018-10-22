@@ -6,7 +6,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import store from './conf/store.singleton';
 
-import register from './service-worker';
+// noinspection ES6UnusedImports
+import register from './service-worker'; // eslint-disable-line no-unused-vars
 import els from './util/dom/elements-by-class';
 
 
@@ -22,7 +23,7 @@ const render$ = (
 els('app').forEach(render$);
 
 
-register();
+// register();
 
 
 if (module.hot) {
