@@ -1,47 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import prevented from '../../../util/event/prevented';
 
-const ActiveLink = (
+import component from '../../../util/react/component';
 
-    ({children}) => <span className="todo-link active">{children}</span>
+import ActiveLink from './active-link';
+import InactiveLink from './inactive-link';
 
+
+export default component(
+    'Link',
+
+    ({active, children, onClick}) => (
+
+        active
+            ? (<ActiveLink>{children}</ActiveLink>)
+            : (<InactiveLink onClick={onClick}>{children}</InactiveLink>)
+    ),
+
+    {
+        active:   PropTypes.bool.isRequired,
+        children: PropTypes.node.isRequired,
+        onClick:  PropTypes.func.isRequired,
+    }
 );
-
-ActiveLink.propTypes = {
-    children: PropTypes.node.isRequired,
-};
-
-
-const InactiveLink = (
-
-    ({onClick, children}) => <a className="todo-link inactive" href="#" onClick={prevented(onClick)}>{children}</a>
-
-);
-
-
-InactiveLink.propTypes = {
-    onClick:  PropTypes.func.isRequired,
-    children: PropTypes.node.isRequired,
-};
-
-
-const Link = ({active, children, onClick}) => (
-
-    active
-        ? (
-            <ActiveLink>{children}</ActiveLink>
-        )
-        : (
-            <InactiveLink onClick={onClick}>{children}</InactiveLink>
-        )
-);
-
-Link.propTypes = {
-    active:   PropTypes.bool.isRequired,
-    children: PropTypes.node.isRequired,
-    onClick:  PropTypes.func.isRequired,
-};
-
-
-export default Link;
