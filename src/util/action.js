@@ -1,4 +1,4 @@
-import logger from './log/nlog.$';
+import log from './log/nlog.$';
 import identity from './fn/identity';
 import nil from './fn/nil';
 
@@ -7,7 +7,7 @@ import nil from './fn/nil';
 import tap from './fn/tap'; // eslint-disable-line no-unused-vars
 
 // eslint-disable-next-line no-unused-vars
-const log$ = logger('util/action()', 3); // eslint-disable-line no-magic-numbers
+const log$ = log('util/action()', 3); // eslint-disable-line no-magic-numbers
 
 
 export default (

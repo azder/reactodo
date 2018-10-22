@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 import curry from 'ramda/es/curry';
 
-import logger from '../../../util/log/log.$';
+import log from '../../../util/log/log.$';
 import value from '../../../util/dom/value';
 import reset$ from '../../../util/dom/reset.$';
 import prevented from '../../../util/event/prevented';
@@ -12,7 +12,7 @@ import target from '../../../util/event/target';
 import value2action from './add.action';
 
 
-const log$ = logger('todo/add/add.container()');
+const log$ = log('todo/add/add.container()');
 
 const onChange$ = curry(
     (data, ev) => data.text = value(target(ev))
