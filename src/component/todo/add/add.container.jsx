@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 import curry from 'ramda/es/curry';
 
-import logger from '../../../util/log.$';
+import logger from '../../../util/log/log.$';
 import value from '../../../util/dom/value';
 import reset$ from '../../../util/dom/reset.$';
 import prevented from '../../../util/event/prevented';

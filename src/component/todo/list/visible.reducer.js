@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import tap from '../../../util/fn/tap';
 // eslint-disable-next-line no-unused-vars
-import log$ from '../../../util/log.$';
+import log$ from '../../../util/log/log.$';
 
 import VIS from '../../../constant/visibility';
 import on from '../../../util/on-reducer';
@@ -39,6 +39,6 @@ export default curry(
         ),
 
         // tap(log$(`after ${prefix}on(`, visibility, ')'))
-        
+
     )(todos)
 );
