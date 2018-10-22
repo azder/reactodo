@@ -5,7 +5,6 @@ import identity from './fn/identity';
 import nil from './fn/nil';
 
 
-/** @type {function(Symbol,object=):AnyAction} */
 export default (
 
     (type, data) => compose(

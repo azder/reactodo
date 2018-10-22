@@ -1,4 +1,8 @@
-export default (
+import curry from 'ramda/es/curry';
+
+export default curry(
+
     // eslint-disable-next-line no-console
-    (...tags) => value => console.log('***', ...tags, ':=', value)
+    (tag, value) => console.log('***', tag, ':', value)
+
 );

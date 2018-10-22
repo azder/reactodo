@@ -1,37 +1,50 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+import curry from 'ramda/es/curry';
+
+import logger from '../../../util/log.$';
+import value from '../../../util/dom/value';
+import reset$ from '../../../util/dom/reset.$';
 import prevented from '../../../util/event/prevented';
-import log from '../../../util/log.$';
+import target from '../../../util/event/target';
 
 import value2action from './add.action';
+
+
+const log$ = logger('todo/add/add.container()');
+
+const onChange$ = curry(
+    (data, ev) => data.text = value(target(ev))
+);
 
 
 export default connect()(
     // eslint-disable-next-line react/prop-types
     props => {
 
-        const {dispatch} = props;
-        log('todo/add/add.container()')(props);
-        let input = null; // eslint-disable-line init-declarations
+        log$(props);
 
-        const onSubmit = prevented(
-            () => {
+        const data = {};
 
-                if (!input.value.trim()) {
+        const onSubmit$ = prevented(
+            ev => {
+
+                if (!data.text.trim()) {
                     return;
                 }
 
-                dispatch(value2action(input.value));
-                input.value = '';
+                props.dispatch(value2action(data.text));
+
+                reset$(target(ev));
 
             }
         );
 
         return (
             <div>
-                <form onSubmit={onSubmit}>
-                    <input ref={node => input = node}/>
+                <form onSubmit={onSubmit$}>
+                    <input value={data.text} onChange={onChange$(data)}/>
                     <button type="submit">Add Todo</button>
                 </form>
             </div>

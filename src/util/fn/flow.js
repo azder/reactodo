@@ -6,7 +6,7 @@ export default (
 
         arg => (
 
-            fns.reduceRight(
+            fns.reduce(
                 (result, fn) => fn(result),
                 arg
             )

@@ -1,19 +1,44 @@
-import VIS from '../../../constant/visibility';
+// eslint-disable-next-line no-unused-vars
 import tap from '../../../util/fn/tap';
-import log from '../../../util/log.$';
+// eslint-disable-next-line no-unused-vars
+import log$ from '../../../util/log.$';
+
+import VIS from '../../../constant/visibility';
+import on from '../../../util/on-reducer';
+import identity from '../../../util/fn/identity';
+import df from '../../../util/fn/df';
+import curry from 'ramda/es/curry';
+import flow from '../../../util/fn/flow';
 
 
-const MAP = {
-    [VIS.all]:       todos => tap(log('MAP.all'))(todos),
-    [VIS.completed]: todos => tap(log('MAP.completed'))(todos.filter(t => t.completed)),
-    [VIS.active]:    todos => tap(log('MAP.acti'))(todos.filter(t => !t.completed)),
-};
+// eslint-disable-next-line no-unused-vars
+const prefix = 'todo/list/visible.reducer()->';
 
+export default curry(
+    (visibility, todos) => flow(
+        // tap(log$(`before ${prefix}on(`, visibility, ')')),
 
-export default (
-    (todos = [], visibility) => tap(
-        log('todo/list/visible.reducer()', todos, visibility, MAP)
-    )(
-        MAP[visibility](todos)
-    )
+        df([]),
+
+        on(
+            VIS.all,
+            visibility,
+            identity
+        ),
+
+        on(
+            VIS.completed,
+            visibility,
+            ts => ts.filter(t => t.completed)
+        ),
+
+        on(
+            VIS.active,
+            visibility,
+            ts => ts.filter(t => !t.completed)
+        ),
+
+        // tap(log$(`after ${prefix}on(`, visibility, ')'))
+        
+    )(todos)
 );

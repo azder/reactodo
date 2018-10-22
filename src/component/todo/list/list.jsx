@@ -1,37 +1,39 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import P from 'prop-types';
 
-
+import './list.css';
 import Item from './item';
 
+import define from '../../../util/define';
 
-const List = (
 
+export default define(
+    'List',
     ({todos, onTodoClick}) => (
-        <ul>
+        <ul className="todo-list">
             {
                 todos.map(todo => (
-                    <Item key={todo.id} {...todo} onClick={() => onTodoClick(todo.id)}/>
+                    <Item
+                        key={todo.id}
+                        onClick={() => onTodoClick(todo.id)}
+                        {...todo}
+                    />
                 ))
             }
         </ul>
-    )
+    ),
+    {
+        todos: P.arrayOf(
+            P.shape({
+
+                id:        P.number.isRequired,
+                completed: P.bool.isRequired,
+                text:      P.string.isRequired,
+
+            }).isRequired
+        ).isRequired,
+
+        onTodoClick: P.func.isRequired,
+
+    }
 );
-
-List.propTypes = {
-
-    todos: PropTypes.arrayOf(
-        PropTypes.shape({
-
-            id:        PropTypes.number.isRequired,
-            completed: PropTypes.bool.isRequired,
-            text:      PropTypes.string.isRequired,
-
-        }).isRequired
-    ).isRequired,
-
-    onTodoClick: PropTypes.func.isRequired,
-
-};
-
-export default List;

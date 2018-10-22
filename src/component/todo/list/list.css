@@ -1,0 +1,10 @@
+.todo-list {
+    list-style:       none;
+    width:            fit-content;
+    /*background-color: beige;*/
+    margin:           1em auto;
+}
+
+.todo-list li {
+    cursor: pointer;
+}
