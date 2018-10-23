@@ -3,6 +3,7 @@ export default Object.freeze({
 
     todos:   'todos',
     visible: 'visible',
+    maxids:  'maxids',
 
 });
 

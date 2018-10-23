@@ -5,7 +5,7 @@ import SK from '../../../constant/status-key';
 
 
 import Link from './link';
-import filter2action from './filter.action';
+import filter2act from './filter.action';
 
 
 export default connect(
@@ -15,7 +15,7 @@ export default connect(
     }),
     //
     (dispatch, props) => ({
-        onClick: () => dispatch(filter2action(props.filter)),
+        onClick: () => dispatch(filter2act(props.filter)),
     })
     //
 )(Link);

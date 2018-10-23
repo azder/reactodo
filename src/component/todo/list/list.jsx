@@ -4,10 +4,10 @@ import P from 'prop-types';
 import './list.css';
 import Item from './item';
 
-import component from '../../../util/react/component';
+import component$ from '../../../util/react/component.$';
 
 
-export default component(
+export default component$(
     'List',
     ({todos, onTodoClick}) => (
         <ul className="todo-list">

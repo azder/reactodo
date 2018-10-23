@@ -4,7 +4,7 @@ import SK from '../../../constant/status-key';
 
 import List from './list';
 import visibles from './visible.reducer';
-import toggle from './toggle.action';
+import toggle2act from './toggle.action';
 
 import prop from 'ramda/es/prop';
 
@@ -17,7 +17,7 @@ export default connect(
         todos: visibles(visibleOf(state), todosOf(state)),
     }),
     dispatch => ({
-        onTodoClick: id => dispatch(toggle(id)),
+        onTodoClick: id => dispatch(toggle2act(id)),
     })
 )(List);
 

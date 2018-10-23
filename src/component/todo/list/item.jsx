@@ -1,7 +1,7 @@
 import React from 'react';
 import * as PropTypes from 'prop-types';
 
-import component from '../../../util/react/component';
+import component$ from '../../../util/react/component.$';
 
 
 const style = (
@@ -13,7 +13,7 @@ const style = (
 );
 
 
-export default component(
+export default component$(
     'Item',
 
     ({onClick, completed, text}) => (

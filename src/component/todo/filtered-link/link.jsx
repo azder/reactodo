@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import component from '../../../util/react/component';
+import component$ from '../../../util/react/component.$';
 
 import ActiveLink from './active-link';
 import InactiveLink from './inactive-link';
 
 
-export default component(
+export default component$(
     'Link',
 
     ({active, children, onClick}) => (

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Provider} from 'react-redux';
 
-import component from '../util/react/component';
+import component$ from '../util/react/component.$';
 
 import './app.css';
 
@@ -11,7 +11,7 @@ import Body from './app-body';
 import PropTypes from 'prop-types';
 
 
-export default component(
+export default component$(
     'App',
     ({store}) => (
         <div className="app">

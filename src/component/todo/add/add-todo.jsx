@@ -1,30 +1,30 @@
+/** Created by azder on 2018-10-23. */
 import React from 'react';
-import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 
 import curry from 'ramda/es/curry';
 
-import log from '../../../util/log/log.$';
-import value from '../../../util/dom/value';
-import reset$ from '../../../util/dom/reset.$';
+import component$ from '../../../util/react/component.$';
 import prevented from '../../../util/event/prevented';
+import reset$ from '../../../util/dom/reset.$';
+import value from '../../../util/dom/value';
 import target from '../../../util/event/target';
-
-import value2action from './add.action';
-
-
-const log$ = log('todo/add/add.container()');
-
-const onChange$ = curry(
-    (data, ev) => data.text = value(target(ev))
-);
+import log from '../../../util/log/log.$';
 
 
-export default connect()(
-    // eslint-disable-next-line react/prop-types
+const log$ = log('todo/add/add-todo()');
+
+const onChange$ = curry((data, ev) => data.text = value(target(ev)));
+
+
+export default component$(
+    'AddTodo',
+
     props => {
 
         log$(props);
 
+        const {maxid, add$} = props;
         const data = {};
 
         const onSubmit$ = prevented(
@@ -34,7 +34,7 @@ export default connect()(
                     return;
                 }
 
-                props.dispatch(value2action(data.text));
+                add$(1 + maxid, data.text);
 
                 reset$(target(ev));
 
@@ -49,6 +49,9 @@ export default connect()(
                 </form>
             </div>
         );
+    },
+    {
+        maxid: PropTypes.number.isRequired,
+        add$:  PropTypes.func.isRequired,
     }
 );
-
