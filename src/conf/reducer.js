@@ -4,8 +4,8 @@ import {combineReducers} from 'redux';
 import SK from '../constant/status-key';
 
 
-import todosXstate from '../component/todos.reducer';
-import visiblesXstate from '../component/todo-filter.reducer';
+import todosXstate from '../component/todo/todos.reducer';
+import visiblesXstate from '../component/todo/visibles.reducer';
 import maxidsXstate from '../component/maxids.reducer';
 
 

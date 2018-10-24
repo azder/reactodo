@@ -1,8 +1,8 @@
-import AT from '../constant/action-type';
-import constant from '../util/fn/constant';
-import alternator from '../util/alternator';
+import AT from '../../constant/action-type';
+import constant from '../../util/fn/constant';
+import alternator from '../../util/alternator';
 
-import data from '../util/data';
+import data from '../../util/data';
 
 
 const reducers = alternator({

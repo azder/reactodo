@@ -3,8 +3,10 @@ const babelrc = require('./.babelrc');
 // const webpack = require('webpack');
 
 module.exports = {
-    entry:  './src/index.jsx',
-    mode:   'development',
+
+    entry: './src/index.jsx',
+    mode:  'development',
+
     module: {
         rules: [
             {

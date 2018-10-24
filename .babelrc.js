@@ -2,7 +2,7 @@ module.exports = {
     presets: [
         'env',
         'react',
-        'stage-2',
+        'stage-3',
     ],
     plugins: [
         'transform-class-properties',

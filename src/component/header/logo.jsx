@@ -1,30 +1,15 @@
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 
 import rehandle from '../../util/event/rehandle';
-import update$ from '../../util/update-state.$';
+import update$ from '../../util/react/update-state.$';
 
 
-// export const Logo = (
-//     ({src, onClick}) => <a href="#" onClick={onClick}>
-//         <img
-//             className="app-logo"
-//             alt="logo"
-//             src={src}
-//         />
-//     </a>
-// );
-
-class Logo extends Component {
+export default class Logo extends React.Component {
 
     state = {spin: true};
-
-    static propTypes = {
-        src:     PropTypes.string.isRequired,
-        onClick: PropTypes.func,
-    };
 
     render() {
 
@@ -50,7 +35,12 @@ class Logo extends Component {
         );
     }
 
+
+    static propTypes = {
+        src:     PropTypes.string.isRequired,
+        onClick: PropTypes.func,
+    };
+
+
 }
 
-
-export default Logo;
